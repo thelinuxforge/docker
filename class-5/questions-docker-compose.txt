@@ -1,0 +1,18 @@
+Write a docker-compose file for below examples
+
+1. docker run -p 8080:8080 -v /root/my-jenkins-data:/var/jenkins_home -u root jenkins/jenkins
+
+2. docker run -d --rm -p 8080:8080 tomcat:8.0
+
+3. docker run -d --name=redis redis
+   docker run -d --name=db postgres:9.4
+   docker run -d --name=vote -p 5000:80 --link redis:redis voting-app
+   docker run -d --name=result -p 5001:80 --link db:db result-app
+   docker run -d --name=worker --link db:db --link redis:redis  worker
+
+4. docker run --name=redis -d redis:alpine
+   docker run --name clickclounter --link redis:redis -p 8085:5000 -d kodekloud/click-counter
+
+5. docker run -p 6379:6379 --name=redis redislabs/redismod
+
+
