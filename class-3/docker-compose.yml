@@ -1,0 +1,7 @@
+services:
+  flask:
+    image: flask:2
+    environment:
+     - APP_COLOR="red"
+
+

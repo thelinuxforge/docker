@@ -1,0 +1,9 @@
+version: 1
+services:
+   web:
+     database:
+       image: mongodb
+     messaging:
+       image: redis:alpine
+     orchestration:
+       image: ansible

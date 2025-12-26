@@ -1,0 +1,4 @@
+version: '3'
+services:
+  my_service:
+    image: class-3-web

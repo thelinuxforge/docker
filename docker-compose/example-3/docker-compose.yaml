@@ -1,0 +1,11 @@
+services:
+  clickcounter:
+    image: kodekloud/click-counter
+    ports:
+    - 8085:5000
+    links:
+    - redis:redis
+
+    
+  redis:
+    image: redis
