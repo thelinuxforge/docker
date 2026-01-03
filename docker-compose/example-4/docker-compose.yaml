@@ -1,31 +1,36 @@
 version: '3'
+
 services:
   webapp:
     image: kodekloud/simple-webapp-mysql
     container_name: webapp
     environment:
       - DB_Host=mysql-db
+      - DB_User=root
       - DB_Password=db_pass123
+      - DB_Name=employees
     ports:
       - "38080:8080"
-    networks:
-      - wp-mysql-network
     depends_on:
       - mysql-db
+    networks:
+      - wp-mysql-network
 
   mysql-db:
-    image: mysql:latest
+    image: mysql:5.7
+    container_name: mysql-db
     environment:
       MYSQL_ROOT_PASSWORD: db_pass123
+      MYSQL_DATABASE: employees
     networks:
       - wp-mysql-network
 
   flask:
     build: .
     environment:
-     - APP_COLOR="red"
-
-
+      - APP_COLOR=red
+    ports:
+      - "5000:5000"
 
 networks:
   wp-mysql-network:
